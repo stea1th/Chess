@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TestChess.DTO;
 
-namespace ConsoleChess.ChessBoards
+namespace ConsoleChess.ConsoleView
 {
-    public interface IChessBoard
+    public interface IChessView
     {
         public void PrintBoard(Turn turn);
 

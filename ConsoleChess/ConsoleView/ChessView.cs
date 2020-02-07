@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using TestChess.DTO;
 using TestChess.Figures;
 
-namespace ConsoleChess.ChessBoards
+namespace ConsoleChess.ConsoleView
 {
-    public class ChessBoard : IChessBoard
+    public class ChessView : IChessView
     {
 
         private const int _boardSize = 8;
@@ -17,15 +17,15 @@ namespace ConsoleChess.ChessBoards
         private const string _oneSpace = " ";
         private readonly string _lettersCoordinates;
 
-        public ChessBoard()
+        public ChessView()
         {
             _lettersCoordinates = CreateLettersCoordinates();
         }
 
         public void PrintBoard(Turn turn)
         {
-            if (turn.WhiteMove) PrintForWhite(turn.Figures);
-            else PrintForBlack(turn.Figures);
+            if (turn.WhiteMove) PrintForWhite(turn.FiguresOnPosition);
+            else PrintForBlack(turn.FiguresOnPosition);
         }
 
         private void PrintForWhiteNumbers()

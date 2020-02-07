@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TestChess.DTO;
 
-namespace TestChess.Engine
+namespace TestChess.Game
 {
-    public interface IChessEngine
+    public interface IChessGame
     {
         public Turn NewGame();
 

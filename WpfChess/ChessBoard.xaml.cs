@@ -54,7 +54,7 @@ namespace WpfChess
         {
             var figureView = new FigureView();
             var turn = figureView.Turn;
-            foreach (var item in turn.Figures.Values)
+            foreach (var item in turn.FiguresOnPosition.Values)
             {
                 var x = new ChessPiece(item.Name, item.Position, item.White);
                 Pieces.Add(x);

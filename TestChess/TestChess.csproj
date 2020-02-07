@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Engine\ChessEngine.cs" />
+    <Compile Include="Game\ChessGame.cs" />
     <Compile Include="Figures\AbstractFigure.cs" />
     <Compile Include="Figures\Bishop.cs" />
     <Compile Include="Figures\Knight.cs" />
@@ -60,7 +60,7 @@
     <Compile Include="Figures\King.cs" />
     <Compile Include="Figures\Pawn.cs" />
     <Compile Include="GameConfiguration\ConfigurationReader.cs" />
-    <Compile Include="Engine\IChessEngine.cs" />
+    <Compile Include="Game\IChessGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DTO\Turn.cs" />
     <Compile Include="Util\TurnConverter.cs" />

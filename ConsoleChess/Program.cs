@@ -1,11 +1,5 @@
-﻿
-using ConsoleChess.ChessBoards;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestChess.Engine;
+﻿using ConsoleChess.ConsoleView;
+using TestChess.Game;
 
 namespace ConsoleChess
 {
@@ -17,8 +11,8 @@ namespace ConsoleChess
 
         static void Main(string[] args)
         {
-            IChessEngine chessEngine = new ChessEngine();
-            IChessBoard chessBoard = new ChessBoard();
+            IChessGame chessEngine = new ChessGame();
+            IChessView chessBoard = new ChessView();
             var turn = chessEngine.NewGame();
             while (true)
             {

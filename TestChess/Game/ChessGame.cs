@@ -8,12 +8,12 @@ using TestChess.Figures;
 using TestChess.GameConfiguration;
 using TestChess.Util;
 
-namespace TestChess.Engine
+namespace TestChess.Game
 {
-    public class ChessEngine : IChessEngine
+    public class ChessGame : IChessGame
     {
 
-        private Dictionary<int, IFigure> _figures;
+        private Dictionary<int, IFigure> _figuresOnPosition;
 
         private int _killed = 100;
 
@@ -30,34 +30,34 @@ namespace TestChess.Engine
             var figureRegistry = new FigureRegistry(configuration);
             figureRegistry.LoadFigureTypes();
             figureRegistry.SetFiguresOnPosition();
-            _figures = figureRegistry.FiguresOnPosition;            
-            return new Turn(_figures, _whiteMove);
+            _figuresOnPosition = figureRegistry.FiguresOnPosition;            
+            return new Turn(_figuresOnPosition, _whiteMove);
         }
 
 
         public bool MoveFigure(int from, int to)
         {
-            _figures.TryGetValue(from, out var myFigure);
+            _figuresOnPosition.TryGetValue(from, out var myFigure);
             if (myFigure == null) return false;
-            _figures.TryGetValue(to, out var anotherFigure);
+            _figuresOnPosition.TryGetValue(to, out var anotherFigure);
             if (anotherFigure != null)
             {
                 if (myFigure.White == anotherFigure.White) return false;
                 else
                 {
                     anotherFigure.Alive = false;
-                    _figures.Add(_killed, anotherFigure);
-                    _figures.Remove(to);
-                    _figures.Add(to, myFigure);
-                    _figures.Remove(from);
+                    _figuresOnPosition.Add(_killed, anotherFigure);
+                    _figuresOnPosition.Remove(to);
+                    _figuresOnPosition.Add(to, myFigure);
+                    _figuresOnPosition.Remove(from);
                     _killed++;
                     return true;
                 }
             }
             else
             {
-                _figures.Add(to, myFigure);
-                _figures.Remove(from);
+                _figuresOnPosition.Add(to, myFigure);
+                _figuresOnPosition.Remove(from);
                 return true;
             }
         }
@@ -66,7 +66,7 @@ namespace TestChess.Engine
         {
             var arr = _turnConverter.Convert(message);
             if (MoveFigure(arr[0], arr[1])) _whiteMove = !_whiteMove;
-            return new Turn(_figures, _whiteMove);
+            return new Turn(_figuresOnPosition, _whiteMove);
         }
 
     }

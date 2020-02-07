@@ -9,13 +9,13 @@ namespace TestChess.DTO
 {
     public class Turn
     {
-        public Dictionary<int, IFigure> Figures;
+        public Dictionary<int, IFigure> FiguresOnPosition;
 
         public bool WhiteMove;
 
         public Turn(Dictionary<int, IFigure> figures, bool whiteMove)
         {
-            Figures = figures;
+            FiguresOnPosition = figures;
             WhiteMove = whiteMove;
         }
     }
