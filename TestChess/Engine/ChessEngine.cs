@@ -21,7 +21,7 @@ namespace TestChess.Engine
 
         private TurnConverter _turnConverter;
 
-        public Turn InitGame()
+        public Turn NewGame()
         {
             _whiteMove = true;
             _turnConverter = new TurnConverter();

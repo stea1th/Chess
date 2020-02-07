@@ -9,7 +9,7 @@ namespace TestChess.Engine
 {
     public interface IChessEngine
     {
-        public Turn InitGame();
+        public Turn NewGame();
 
         public bool MoveFigure(int from, int to);
 

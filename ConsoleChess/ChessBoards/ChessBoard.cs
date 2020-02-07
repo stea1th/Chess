@@ -11,10 +11,10 @@ namespace ConsoleChess.ChessBoards
     public class ChessBoard : IChessBoard
     {
 
-        private readonly int _boardSize = 8;
-        private readonly string _threeSpaces = "   ";
-        private readonly string _twoSpaces = "  ";
-        private readonly string _oneSpace = " ";
+        private const int _boardSize = 8;
+        private const string _threeSpaces = "   ";
+        private const string _twoSpaces = "  ";
+        private const string _oneSpace = " ";
         private readonly string _lettersCoordinates;
 
         public ChessBoard()

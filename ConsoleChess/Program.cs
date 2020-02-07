@@ -19,7 +19,7 @@ namespace ConsoleChess
         {
             IChessEngine chessEngine = new ChessEngine();
             IChessBoard chessBoard = new ChessBoard();
-            var turn = chessEngine.InitGame();
+            var turn = chessEngine.NewGame();
             while (true)
             {
                 chessBoard.PrintBoard(turn);
