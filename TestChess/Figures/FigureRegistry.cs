@@ -21,7 +21,6 @@ namespace TestChess.Figures
             this.GameConfiguration = configuration;
         }
 
-
         public void LoadFigureTypes()
         {
 

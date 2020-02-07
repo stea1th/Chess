@@ -70,6 +70,8 @@
     <Compile Include="ChessBoard.xaml.cs">
       <DependentUpon>ChessBoard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChessPiece.cs" />
+    <Compile Include="FigureView.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -100,6 +102,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestChess\TestChess.csproj">
+      <Project>{32b26ddc-9f89-4592-a6e1-abaeb90b6563}</Project>
+      <Name>TestChess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\BlackBishop.png" />
+    <Resource Include="Pics\BlackKing.png" />
+    <Resource Include="Pics\BlackKnight.png" />
+    <Resource Include="Pics\BlackPawn.png" />
+    <Resource Include="Pics\BlackQueen.png" />
+    <Resource Include="Pics\WhiteBishop.png" />
+    <Resource Include="Pics\WhiteKing.png" />
+    <Resource Include="Pics\WhiteKnight.png" />
+    <Resource Include="Pics\WhitePawn.png" />
+    <Resource Include="Pics\WhiteQueen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\BlackRook.png" />
+    <Resource Include="Pics\WhiteRook.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

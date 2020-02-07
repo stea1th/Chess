@@ -15,13 +15,6 @@ namespace TestChess.Figures
         public bool White { get; set; }
         public bool Alive { get; set; }
 
-        //protected AbstractFigure(string notation, string name)
-        //{
-        //    Notation = notation;
-        //    View = (White ? "w" : "b") + notation;
-        //    Name = name;
-        //}
-
         protected AbstractFigure(string notation, string name, int position, bool white) 
         {
             Notation = notation;

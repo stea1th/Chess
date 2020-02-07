@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:WpfChess"
         mc:Ignorable="d"
         Title="ChessBoard" Height="600" Width="600" ResizeMode="NoResize">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type local:ChessPiece}">
+            <Image Source="{Binding ImageSource}"/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <UniformGrid Rows="8" Columns="8" Opacity=".5"
                      x:Name="SquaresGrid"/>
