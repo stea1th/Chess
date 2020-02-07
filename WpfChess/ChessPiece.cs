@@ -39,8 +39,9 @@ namespace WpfChess
 
         private void TransformToRowAndColumn(int position)
         {
-            Row = position / _boardSize;
-            Column = position - Row * _boardSize - 1;
+            Row = position % _boardSize == 0 ? position / _boardSize - 1 : position / _boardSize;
+
+            Column = position % _boardSize == 0 ? _boardSize - 1 : position - Row * _boardSize - 1;
         }
 
 
