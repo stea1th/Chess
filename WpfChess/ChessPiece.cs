@@ -12,6 +12,8 @@ namespace WpfChess
 
         public string Name { get; set; }
 
+        //public int Position { get; set; }
+
         public int Row { get; set; }
 
         public int Column { get; set; }
@@ -20,13 +22,14 @@ namespace WpfChess
 
         private const int _boardSize = 8;
 
-        public string ImageSource => @"\Pics\" + (IsWhite ? "White" : "Black") + (Name.First().ToString().ToUpper() + Name.Remove(0, 1).ToLower() + ".png");
+        public string ImageSource => @"\Pics\" + (IsWhite ? "White" : "Black") + (Name.First().ToString().ToUpper() + Name.Remove(0, 1) + ".png");
 
         public ChessPiece(string name, int position, bool isWhite)
         {
             Name = name;
             IsWhite = isWhite;
             TransformToRowAndColumn(position);
+            //Position = position;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
