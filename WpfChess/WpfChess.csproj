@@ -110,7 +110,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pics\BlackBishop.png" />
+    <Resource Include="Pics\BlackBishop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Pics\BlackKing.png" />
     <Resource Include="Pics\BlackKnight.png" />
     <Resource Include="Pics\BlackPawn.png" />

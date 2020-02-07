@@ -20,7 +20,7 @@ namespace WpfChess
 
         private const int _boardSize = 8;
 
-        public string ImageSource => "/Pics/" + (IsWhite ? "White" : "Black") + (Name.First().ToString().ToUpper() + Name.Remove(0, 1) + ".png");
+        public string ImageSource => @"\Pics\" + (IsWhite ? "White" : "Black") + (Name.First().ToString().ToUpper() + Name.Remove(0, 1).ToLower() + ".png");
 
         public ChessPiece(string name, int position, bool isWhite)
         {
@@ -40,7 +40,7 @@ namespace WpfChess
         private void TransformToRowAndColumn(int position)
         {
             Row = position / _boardSize;
-            Column = position - Row * _boardSize;
+            Column = position - Row * _boardSize - 1;
         }
 
 

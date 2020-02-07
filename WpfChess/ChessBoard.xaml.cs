@@ -27,7 +27,9 @@ namespace WpfChess
 
         public ChessBoard()
         {
+            Pieces = new ObservableCollection<ChessPiece>();
             InitializeComponent();
+            DataContext = this;
             CreateBoard();
             NewGame();
         }
@@ -52,7 +54,12 @@ namespace WpfChess
         {
             var figureView = new FigureView();
             var turn = figureView.Turn;
-            turn.Figures.Values.ToList().ForEach(x => Pieces.Add(new ChessPiece(x.Name, x.Position, x.White)));
+            foreach (var item in turn.Figures.Values)
+            {
+                var x = new ChessPiece(item.Name, item.Position, item.White);
+                Pieces.Add(x);
+            }
+            //turn.Figures.Values.ToList().ForEach(x => Pieces.Add(new ChessPiece(x.Name, x.Position, x.White)));
 
         }
     }
