@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Configuration"
+    targetNamespace="http://infoteam.de"
+    attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    xmlns="http://infoteam.de"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name ="Configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Figures">
+          <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="64">
+              <xs:element ref="Figure"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name ="Figure">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="figureType" name="type" use="required"/>
+          <xs:attribute type="xs:integer" name="position" use="required"/>
+          <xs:attribute type="xs:boolean" name="white" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="figureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pawn"/>
+      <xs:enumeration value="bishop"/>
+      <xs:enumeration value="knight"/>
+      <xs:enumeration value="rook"/>
+      <xs:enumeration value="queen"/>
+      <xs:enumeration value="king"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

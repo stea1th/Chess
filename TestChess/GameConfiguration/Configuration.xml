@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://infoteam.de">
+  <Figures>
+    <Figure type="pawn" position="49" white="true"/>
+    <Figure type="pawn" position="50" white="true"/>
+    <Figure type="pawn" position="51" white="true"/>
+    <Figure type="pawn" position="52" white="true"/>
+    <Figure type="pawn" position="53" white="true"/>
+    <Figure type="pawn" position="54" white="true"/>
+    <Figure type="pawn" position="55" white="true"/>
+    <Figure type="pawn" position="56" white="true"/>
+    <Figure type="king" position="61" white="true"/>
+    <Figure type="queen" position="60" white="true"/>
+    <Figure type="rook" position="57" white="true"/>
+    <Figure type="rook" position="64" white="true"/>
+    <Figure type="knight" position="58" white="true"/>
+    <Figure type="knight" position="63" white="true"/>
+    <Figure type="bishop" position="59" white="true"/>
+    <Figure type="bishop" position="62" white="true"/>       
+    <Figure type="pawn" position="9" white="false"/>
+    <Figure type="pawn" position="10" white="false"/>
+    <Figure type="pawn" position="11" white="false"/>
+    <Figure type="pawn" position="12" white="false"/>
+    <Figure type="pawn" position="13" white="false"/>
+    <Figure type="pawn" position="14" white="false"/>
+    <Figure type="pawn" position="15" white="false"/>
+    <Figure type="pawn" position="16" white="false"/>
+    <Figure type="king" position="5" white="false"/>
+    <Figure type="queen" position="4" white="false"/>
+    <Figure type="rook" position="1" white="false"/>
+    <Figure type="rook" position="8" white="false"/>
+    <Figure type="knight" position="2" white="false"/>
+    <Figure type="knight" position="7" white="false"/>
+    <Figure type="bishop" position="3" white="false"/>
+    <Figure type="bishop" position="6" white="false"/>
+  </Figures>
+</Configuration>
