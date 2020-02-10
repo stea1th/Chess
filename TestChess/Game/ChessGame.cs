@@ -14,22 +14,13 @@ namespace TestChess.Game
     {
 
         private Dictionary<int, IFigure> _figuresOnPosition;
-
         private int _killed = 100;
-
-        private bool _whiteMove;
-
-        private TurnConverter _turnConverter;
+        private bool _whiteMove = true;
 
         public Turn NewGame()
         {
-            _whiteMove = true;
-            _turnConverter = new TurnConverter();
-            var confReader = new ConfigurationReader();
-            var configuration = confReader.GetConfiguration();
+            var configuration = new ConfigurationReader().GetConfiguration();
             var figureRegistry = new FigureRegistry(configuration);
-            figureRegistry.LoadFigureTypes();
-            figureRegistry.SetFiguresOnPosition();
             _figuresOnPosition = figureRegistry.FiguresOnPosition;            
             return new Turn(_figuresOnPosition, _whiteMove);
         }
@@ -37,43 +28,46 @@ namespace TestChess.Game
         private bool MoveFigure(int from, int to)
         {
             _figuresOnPosition.TryGetValue(from, out var myFigure);
+            
             if (myFigure == null) return false;
             _figuresOnPosition.TryGetValue(to, out var anotherFigure);
-            if (anotherFigure != null)
+
+            if (anotherFigure == null) return ChangeFigurePosition(from, to, myFigure);
+            else
             {
                 if (myFigure.White == anotherFigure.White) return false;
                 else
                 {
-                    anotherFigure.Alive = false;
-                    anotherFigure.Position = _killed;
-                    myFigure.Position = to;
-                    _figuresOnPosition.Add(_killed, anotherFigure);
-                    _figuresOnPosition.Remove(to);
-                    _figuresOnPosition.Add(to, myFigure);
-                    _figuresOnPosition.Remove(from);
-                    _killed++;
-                    return true;
+                    KillFigure(to, anotherFigure);
+                    return ChangeFigurePosition(from, to, myFigure);
                 }
-            }
-            else
-            {
-                myFigure.Position = to;
-                _figuresOnPosition.Add(to, myFigure);
-                _figuresOnPosition.Remove(from);
-                return true;
             }
         }
 
         public Turn MakeATurn(int from, int to)
         {
-            if(MoveFigure(from, to)) _whiteMove = !_whiteMove;
+            if (MoveFigure(from, to)) _whiteMove = !_whiteMove;
             return new Turn(_figuresOnPosition, _whiteMove);
         }
 
         public Turn MakeATurn(string message)
         {
-            var arr = _turnConverter.Convert(message);
+            var arr = TurnConverter.Convert(message);
             return MakeATurn(arr[0], arr[1]); 
+        }
+
+        private bool ChangeFigurePosition(int from, int to, IFigure figure)
+        {
+            figure.Position = to;
+            _figuresOnPosition.Add(to, figure);
+            _figuresOnPosition.Remove(from);
+            return true;
+        }
+
+        private void KillFigure(int from, IFigure figure)
+        {
+            figure.Alive = false;
+            ChangeFigurePosition(from, _killed++, figure);
         }
 
     }

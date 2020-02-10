@@ -19,11 +19,17 @@ namespace TestChess.Figures
         public FigureRegistry(Configuration configuration)
         {
             this.GameConfiguration = configuration;
+            Init();
+        }
+
+        private void Init()
+        {
+            LoadFigureTypes();
+            SetFiguresOnPosition();
         }
 
         public void LoadFigureTypes()
         {
-
             var asm = Assembly.Load("TestChess");
             var types = asm.GetTypes();
             FigureTypes = types.Where(x => x.GetInterface("IFigure") != null && !x.IsAbstract).ToDictionary(x => x.Name.ToLower(), x => x);

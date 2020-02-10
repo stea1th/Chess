@@ -9,29 +9,28 @@ namespace TestChess.Util
 {
     class TurnConverter
     {
-        private readonly string _regex = "[A-Ha-h][1-8]";
-        private readonly int _boardSize = 8;
-        private readonly int _letterValue = 96;
+        private static readonly string _regex = "[A-Ha-h][1-8]";
+        private static readonly int _boardSize = 8;
+        private static readonly int _letterValue = 96;
 
+        protected TurnConverter()
+        {
+        }
 
-        private List<string> Match(string message)
+        private static List<string> Match(string message)
         {
             var matched = Regex.Matches(message, _regex).Cast<Match>().Select(m=> m.Value.ToLower()).ToList();
             return matched.Count == 2 ? matched : null;
-
         }
 
-        public int[] Convert(string message)
+        public static int[] Convert(string message)
         {
             var matched = Match(message);
-            if (matched == null) return null;
-            return TransformToIntArray(matched);
+            return matched == null ? null : TransformToIntArray(matched);
         }
 
-        private int[] TransformToIntArray(List<string> matched)
-        {
-            return matched.Select(x => (x.ElementAt(0) - _letterValue) + (_boardSize - int.Parse(x.Substring(1))) * _boardSize).ToArray(); 
-        }
+        private static int[] TransformToIntArray(List<string> matched) => 
+            matched.Select(x => (x.ElementAt(0) - _letterValue) + (_boardSize - int.Parse(x.Substring(1))) * _boardSize).ToArray();
 
     }
 }
