@@ -12,7 +12,7 @@ namespace WpfChess
 
         public string Name { get; set; }
 
-        //public int Position { get; set; }
+        public int Position { get; set; }
 
         public int Row { get; set; }
 
@@ -29,7 +29,7 @@ namespace WpfChess
             Name = name;
             IsWhite = isWhite;
             TransformToRowAndColumn(position);
-            //Position = position;
+            Position = position;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

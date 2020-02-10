@@ -34,8 +34,13 @@ namespace TestChess.Game
             return new Turn(_figuresOnPosition, _whiteMove);
         }
 
+        public void TestClick(string message)
+        {
+            Console.WriteLine(message);
+        }
 
-        public bool MoveFigure(int from, int to)
+
+        private bool MoveFigure(int from, int to)
         {
             _figuresOnPosition.TryGetValue(from, out var myFigure);
             if (myFigure == null) return false;
@@ -46,6 +51,8 @@ namespace TestChess.Game
                 else
                 {
                     anotherFigure.Alive = false;
+                    anotherFigure.Position = _killed;
+                    myFigure.Position = to;
                     _figuresOnPosition.Add(_killed, anotherFigure);
                     _figuresOnPosition.Remove(to);
                     _figuresOnPosition.Add(to, myFigure);
@@ -56,17 +63,23 @@ namespace TestChess.Game
             }
             else
             {
+                myFigure.Position = to;
                 _figuresOnPosition.Add(to, myFigure);
                 _figuresOnPosition.Remove(from);
                 return true;
             }
         }
 
+        public Turn MakeATurn(int from, int to)
+        {
+            if(MoveFigure(from, to)) _whiteMove = !_whiteMove;
+            return new Turn(_figuresOnPosition, _whiteMove);
+        }
+
         public Turn MakeATurn(string message)
         {
             var arr = _turnConverter.Convert(message);
-            if (MoveFigure(arr[0], arr[1])) _whiteMove = !_whiteMove;
-            return new Turn(_figuresOnPosition, _whiteMove);
+            return MakeATurn(arr[0], arr[1]); 
         }
 
     }

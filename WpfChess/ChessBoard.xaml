@@ -8,17 +8,17 @@
         Title="ChessBoard" Height="600" Width="600" ResizeMode="NoResize">
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:ChessPiece}">
-            <Image Source="{Binding ImageSource}"/>
+            <Image Source="{Binding ImageSource}" MouseDown="Figure_MouseDown"/>
         </DataTemplate>
     </Window.Resources>
     <Grid>
         <UniformGrid Rows="8" Columns="8" Opacity=".5"
-                     x:Name="SquaresGrid"/>
+                     x:Name="SquaresGrid" MouseDown="Square_MouseDown"/>
 
-        <ItemsControl ItemsSource="{Binding Pieces}">
+        <ItemsControl ItemsSource="{Binding Pieces}" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Grid IsItemsHost="True">
+                    <Grid IsItemsHost="True" >
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
