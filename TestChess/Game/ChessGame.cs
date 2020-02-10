@@ -34,12 +34,6 @@ namespace TestChess.Game
             return new Turn(_figuresOnPosition, _whiteMove);
         }
 
-        public void TestClick(string message)
-        {
-            Console.WriteLine(message);
-        }
-
-
         private bool MoveFigure(int from, int to)
         {
             _figuresOnPosition.TryGetValue(from, out var myFigure);

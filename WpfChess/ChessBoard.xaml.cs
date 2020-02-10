@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TestChess.DTO;
+using WpfChess.ModelView;
 
 namespace WpfChess
 {
@@ -76,7 +77,8 @@ namespace WpfChess
         {
             Pieces.Clear();
             _coordinates.Clear();
-            turn.FiguresOnPosition.Values.ToList().FindAll(x=> x.Alive).ForEach(x => Pieces.Add(new ChessPiece(x.Name, x.Position, x.White)));           
+            turn.FiguresOnPosition.Values.ToList()
+                .FindAll(x=> x.Alive).ForEach(x => Pieces.Add(new ChessPiece(x.Name, x.Position, x.White)));           
         }
 
         private void AddToCoordinates(int coordinate)

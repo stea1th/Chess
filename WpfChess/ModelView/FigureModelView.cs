@@ -8,7 +8,7 @@ using TestChess.DTO;
 using TestChess.Figures;
 using TestChess.Game;
 
-namespace WpfChess
+namespace WpfChess.ModelView
 {
     class FigureModelView
     {

@@ -70,8 +70,8 @@
     <Compile Include="ChessBoard.xaml.cs">
       <DependentUpon>ChessBoard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChessPiece.cs" />
-    <Compile Include="FigureModelView.cs" />
+    <Compile Include="Model\ChessPiece.cs" />
+    <Compile Include="ModelView\FigureModelView.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -127,10 +127,6 @@
     <Resource Include="Pics\BlackRook.png" />
     <Resource Include="Pics\WhiteRook.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ModelView\" />
-    <Folder Include="Model\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
