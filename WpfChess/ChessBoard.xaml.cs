@@ -25,7 +25,7 @@ namespace WpfChess
     {
         public ObservableCollection<ChessPiece> Pieces { get; set; }
 
-        private const int _boardSize = 8;
+        //private const int _boardSize = 8;
         private readonly FigureModelView _figureModelView = new FigureModelView();
         private readonly List<int> _coordinates = new List<int>();
 
@@ -40,20 +40,7 @@ namespace WpfChess
 
         private void NewGame() => SetFiguresOnChessBoard(_figureModelView.Turn);
 
-        private void CreateBoard()
-        {
-            for (var row = 0; row < _boardSize; row++)
-            {
-                var isBlack = row % 2 == 1;
-                for (int col = 1; col <= _boardSize; col++)
-                {
-                    var square = new Rectangle { Fill = isBlack ? Brushes.Black : Brushes.White };
-                    square.Uid = (col + _boardSize * row).ToString();
-                    SquaresGrid.Children.Add(square);
-                    isBlack = !isBlack;
-                }
-            }
-        }
+        private void CreateBoard() => _figureModelView.CreateBoard().ForEach(x => SquaresGrid.Children.Add(x));
 
         private void Square_MouseDown(object sender, RoutedEventArgs e)
         {
