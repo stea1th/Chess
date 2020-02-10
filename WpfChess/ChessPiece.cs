@@ -36,8 +36,7 @@ namespace WpfChess
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void TransformToRowAndColumn(int position)
@@ -46,8 +45,5 @@ namespace WpfChess
 
             Column = position % _boardSize == 0 ? _boardSize - 1 : position - Row * _boardSize - 1;
         }
-
-
-
     }
 }

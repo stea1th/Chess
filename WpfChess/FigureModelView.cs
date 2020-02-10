@@ -17,9 +17,6 @@ namespace WpfChess
 
         public Turn Turn => chessGame.NewGame();
 
-        public Turn MoveFigure(List<int> coordinates)
-        {
-            return chessGame.MakeATurn(coordinates[0], coordinates[1]);
-        }
+        public Turn MoveFigure(List<int> coordinates) => chessGame.MakeATurn(coordinates[0], coordinates[1]);
     }
 }

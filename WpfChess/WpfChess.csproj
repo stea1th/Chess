@@ -127,5 +127,10 @@
     <Resource Include="Pics\BlackRook.png" />
     <Resource Include="Pics\WhiteRook.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelView\" />
+    <Folder Include="Model\" />
+    <Folder Include="View\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
