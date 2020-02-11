@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -70,6 +72,7 @@
     <Compile Include="ChessBoard.xaml.cs">
       <DependentUpon>ChessBoard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModelView\IFigureModelView.cs" />
     <Compile Include="Model\ChessPiece.cs" />
     <Compile Include="ModelView\FigureModelView.cs" />
     <Compile Include="MainWindow.xaml.cs">

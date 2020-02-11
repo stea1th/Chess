@@ -25,9 +25,7 @@ namespace WpfChess
     {
         public ObservableCollection<ChessPiece> Pieces { get; set; }
 
-        //private const int _boardSize = 8;
-        private readonly FigureModelView _figureModelView = new FigureModelView();
-        private readonly List<int> _coordinates = new List<int>();
+        private readonly IFigureModelView _figureModelView = new FigureModelView();
 
         public ChessBoard()
         {
@@ -44,34 +42,28 @@ namespace WpfChess
 
         private void Square_MouseDown(object sender, RoutedEventArgs e)
         {
-            var clicked = (Rectangle) e.OriginalSource;
-            AddToCoordinates(int.Parse(clicked.Uid));          
+            var clicked = (Rectangle)e.OriginalSource;
+            TryToMove(int.Parse(clicked.Uid));
         }
 
         private void Figure_MouseDown(object sender, RoutedEventArgs e)
         {
-            var clicked = (Image) e.OriginalSource;
-            var piece = (ChessPiece) clicked.DataContext;
-            AddToCoordinates(piece.Position);
+            var clicked = (Image)e.OriginalSource;
+            var piece = (ChessPiece)clicked.DataContext;
+            TryToMove(piece.Position);
         }
 
-        private void Move()
+        private void TryToMove(int position)
         {
-            if (_coordinates.Count == 2) SetFiguresOnChessBoard(_figureModelView.MoveFigure(_coordinates));
+            if (_figureModelView.ReadyToMove(position))
+                SetFiguresOnChessBoard(_figureModelView.MoveFigure());
         }
 
         private void SetFiguresOnChessBoard(Turn turn)
         {
             Pieces.Clear();
-            _coordinates.Clear();
             turn.FiguresOnPosition.Values.ToList()
-                .FindAll(x=> x.Alive).ForEach(x => Pieces.Add(new ChessPiece(x.Name, x.Position, x.White)));           
-        }
-
-        private void AddToCoordinates(int coordinate)
-        {
-            _coordinates.Add(coordinate);
-            Move();
+                .FindAll(x => x.Alive).ForEach(x => Pieces.Add(new ChessPiece(x.Name, x.Position, x.White)));
         }
     }
 }
