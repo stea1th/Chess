@@ -11,7 +11,7 @@ namespace WpfChess.ModelView
     interface IFigureModelView
     {
 
-        public Turn Turn { get; }
+        public Turn NewGame();
         
         public List<Rectangle> CreateBoard();
 

@@ -35,10 +35,8 @@ namespace WpfChess
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        protected virtual void OnPropertyChanged(string propertyName) 
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         private void TransformToRowAndColumn(int position)
         {

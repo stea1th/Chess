@@ -36,7 +36,7 @@ namespace WpfChess
             NewGame();
         }
 
-        private void NewGame() => SetFiguresOnChessBoard(_figureModelView.Turn);
+        private void NewGame() => SetFiguresOnChessBoard(_figureModelView.NewGame());
 
         private void CreateBoard() => _figureModelView.CreateBoard().ForEach(x => SquaresGrid.Children.Add(x));
 

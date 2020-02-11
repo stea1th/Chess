@@ -37,7 +37,7 @@ namespace WpfChess.ModelView
             return result;
         }
 
-        public Turn Turn => _chessGame.NewGame();
+        public Turn NewGame() => _chessGame.NewGame();
 
         public Turn MoveFigure()
         {
